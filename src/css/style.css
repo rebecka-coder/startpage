@@ -1,0 +1,24 @@
+body {
+    background-color: lightpink;
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  p {
+    font-family: verdana;
+    font-size: 20px;
+}
+img {
+  margin-top: 2em;
+  width: 30%;
+}
+.container {
+  text-align: center;
+}
