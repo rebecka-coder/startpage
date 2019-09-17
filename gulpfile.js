@@ -1,6 +1,7 @@
 //Variabler för olika paket inom gulp
 const { src, dest, watch, series, parallel } = require("gulp");
 const concat = require("gulp-concat");
+const concatCss = require('gulp-concat-css');
 const uglify = require("gulp-uglify-es").default;
 const uglifycss = require('gulp-uglifycss');
 const livereload = require('gulp-livereload');
@@ -31,7 +32,7 @@ function copyImages() {
 // Task: sammanslå css-filer, minifiera-filer
 function cssTask() {
     return src(files.cssPath)
-        .pipe(concat('style.css'))
+        .pipe(concatCss('style/css'))
         .pipe(uglifycss())
         .pipe(dest('pub/css')
         .pipe(livereload())
