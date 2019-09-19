@@ -17,25 +17,25 @@ const files = {
 // Task: kopiera HTML
 function copyHTML() {
     return src(files.htmlPath)
-        .pipe(dest('pub')
         .pipe(livereload())
+        .pipe(dest('pub')
     );
 }
 //Task: kopiera bilder
 function copyImages() {
     return src(files.imagePath)
-        .pipe(dest('pub')
         .pipe(livereload())
+        .pipe(dest('pub')
     );
 }
 
 // Task: sammanslå css-filer, minifiera-filer
 function cssTask() {
     return src(files.cssPath)
-        .pipe(concatCss('style/css'))
+        .pipe(concatCss('css'))
         .pipe(uglifycss())
-        .pipe(dest('pub/css')
         .pipe(livereload())
+        .pipe(dest('pub/css')
     );
 }
 //Task: Sammanslå jsfiler, minifiera filer
@@ -43,14 +43,13 @@ function jsTask() {
     return src(files.jsPath)
         .pipe(concat('main.js'))
         .pipe(uglify())
-        .pipe(dest('pub/js')
         .pipe(livereload())
+        .pipe(dest('pub/js')
     );
 }
-
 // Task: watcher
-function watchTask() {
-    livereload.listen() 
+function watchTask() { 
+    livereload({ start: true })
     watch([files.htmlPath, files.jsPath, files.cssPath, files.imagePath],
     parallel(copyHTML, copyImages, jsTask, cssTask)
     );
