@@ -8,7 +8,7 @@ Det blir en slags avlastning för de projekt man skapar, en sammanslagning av fi
 
 Har använt Node.js för uppgiften, som kan köra Javascript på servernivå. Programmet är väldigt snabbt och effektivt, och den har ett pakethanteringssystem som heter npm. Den innehåller paket med färdig kod man kan återanvända i projekt (sk packages) och på så sätt spara tid.
 
-Jag har använt Visual studio Code (editor) för att kunna skapa mina kataloger med filer för mitt projekt. I editorn kan man även skriva direkt i terminalen för att kunna automatisera filerna. För att kunna automatisera har jag använt mig av Gulp som har många paket i sig och är ett välutvecklat verktyg. Det är logik i koden och beskriver vad som ska hända. Med Gulp-concat har jag kunnat sammanslå JS-filer och med Gulp-uglify har jag kunnat minifiera JavaScript. Samma sak med Gulp concatCss och Gulp-uglifycss. För att slippa uppdatera webbläsaren hela tiden så fort man gör en ändring i utvecklingsfilerna, fanns ett paket för just detta som hette gulp-livereload.
+Jag har använt Visual studio Code (editor) för att kunna skapa mina kataloger med filer för mitt projekt. I editorn kan man även skriva direkt i terminalen för att kunna automatisera filerna. För att kunna automatisera har jag använt mig av Gulp som har många paket i sig och är ett välutvecklat verktyg. Det är logik i koden och beskriver vad som ska hända. Med Gulp-concat har jag kunnat sammanslå JS-filer och med Gulp-uglify har jag kunnat minifiera JavaScript. Samma sak med Gulp concatCss och Gulp-uglifycss. För att slippa uppdatera webbläsaren hela tiden så fort man gör en ändring i utvecklingsfilerna, fanns ett paket för just detta som hette browserSync.
 
 * _Beskriv systemet du skapat, hur man startar upp det och de tasks som ingår._
 
@@ -20,7 +20,7 @@ För att göra en sammanslagning av filer, behövdes en installation av gulp-con
 
 För att testa att mina js-filer fungerar och hamnar i rätt följd, testade jag att skapa två js-filer med lite källkod. Skrev gulp i terminalen, vilket ledde till att en ”main.js” fil skapades, med två koder som hamnade efter varandra i källkoden. Men för att index.html-filen också skulle ta min js-fil på den publika webbplatsen, gjorde jag även källhänvisning till den i koden. För att minifiera js-filerna behövdes en installation av ”gulp-uglify”. När denna var installerad och klar i terminalen, la jag till en require i gulp-filen som fick variabeln ”uglify”. Gjorde en pipe till i js-funktionen. Samma händelser med js, gjorde jag även med mina css-filer.
 
-Laddade ned även paketet gulp-livereload och satte en require på den. I alla funktioner fyllde jag sedan i ”.pipe(livereload())” sista av alla och skrev först i min watcher-funktion ”livereload-listen()”. För denna webbplats har jag bara gjort en enkel sida,bara för att visa hur jag fått hela systemet att fungera. Men för att skapa en grund för kommande projekt kan jag radera sedan designen för själva sidan men ha en grundsida kvar. 
+Laddade ned även paketet browserSync och satte en require på den. I alla funktioner fyllde jag sedan i ”.pipe(browserSync.stream())” sista av alla och initierade den i min watcher. För denna webbplats har jag bara gjort en enkel sida,bara för att visa hur jag fått hela systemet att fungera. Men för att skapa en grund för kommande projekt kan jag radera sedan designen för själva sidan men ha en grundsida kvar. 
 
 
 * _Berätta om du lagt till något extra._
