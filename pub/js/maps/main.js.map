@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/test1.js","js/test2.js"],"names":["console","log"],"mappings":";;AAAAA,OAAO,CAACC,GAAR,CAAY,yBAAZ;AACAD,OAAO,CAACC,GAAR,CAAY,aAAZ;;;ACDAD,OAAO,CAACC,GAAR,CAAY,yBAAZ","file":"../main.js","sourcesContent":["console.log(\"Hello from gulptest1.js\");\nconsole.log(\"hello again\");","console.log(\"Hello from gulptest2.js\");"]}

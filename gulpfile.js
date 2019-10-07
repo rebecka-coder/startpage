@@ -5,7 +5,18 @@ const concat = require('gulp-concat');
 const concatCss = require('gulp-concat-css');
 const uglify = require('gulp-uglify-es').default;
 const uglifycss = require('gulp-uglifycss');
+var babel = require("gulp-babel");
+var sourcemaps = require("gulp-sourcemaps");
 
+function sourceMaps() {
+  return src(files.jsPath)
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(concat("main.js"))
+    .pipe(sourcemaps.write())
+    .pipe(dest("pub/js"))
+    .pipe(browserSync.stream());
+}
 // Sökvägar
 const files = {
     htmlPath: "src/**/*.html",
@@ -51,7 +62,7 @@ function watchTask() {
        }
    });
     watch([files.htmlPath, files.jsPath, files.cssPath, files.imagePath],
-    parallel(copyHTML, copyImages, jsTask, cssTask)).on('change', browserSync.reload)
+    parallel(copyHTML, copyImages, jsTask, cssTask, sourceMaps)).on('change', browserSync.reload)
     ;
 }
 //Kalla på funktioner
@@ -59,6 +70,7 @@ exports.default = series(
     copyHTML, 
     copyImages, 
     jsTask, 
-    cssTask, 
+    cssTask,
+    sourceMaps, 
     watchTask
 );
